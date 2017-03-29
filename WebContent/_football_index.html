@@ -43,6 +43,7 @@
   <link href="assets/css/content.css" rel="stylesheet">
   <link href="assets/css/components.css" rel="stylesheet">
   <link href="assets/css/style.css" rel="stylesheet">
+  <link href="assets/css/snackbar.css" rel="stylesheet">
 
   <!-- Custom CSS-->
   <link href="assets/css/custom.css" rel="stylesheet">
@@ -52,9 +53,6 @@
 
   <div class="site-wrapper clearfix">
     <div class="site-overlay"></div>
-
-
-
 
     <!-- Header
     ================================================== -->
@@ -281,7 +279,7 @@
               </ul>
 
               <ul class="main-nav__list" style="float:right;">
-                <li class=""><a href="#login_page_container">Login</a>
+                <li class=""><a href="">Logout</a>
               </ul>
             </nav>
             <!-- Main Navigation / End -->
@@ -1178,225 +1176,6 @@
     </div>
 
     <!-- Content / End -->
-
-    <div id="login_section">
-      <!-- Login Page Content
-      ================================================== -->
-      <div class="site-content" id="login_page_container">
-        <div class="container">
-
-          <div class="row">
-
-            <div class="col-md-6">
-
-              <!-- Login -->
-              <div class="card">
-                <div class="card__header">
-                  <h4>Login to your Account</h4>
-                </div>
-                <div class="card__content">
-
-                  <!-- Login Form -->
-                  <form action="#">
-                    <div class="form-group">
-                      <label for="login-name">Your Email</label>
-                      <input type="email" name="login-name" id="login-name" class="form-control" placeholder="Enter your email address...">
-                    </div>
-                    <div class="form-group">
-                      <label for="login-password">Your Password</label>
-                      <input type="password" name="login-password" id="login-password" class="form-control" placeholder="Enter your password...">
-                    </div>
-                    <div class="form-group form-group--password-forgot">
-                      <label class="checkbox checkbox-inline">
-                        <input type="checkbox" id="inlineCheckbox1" value="option1"> Remember Me
-                        <span class="checkbox-indicator"></span>
-                      </label>
-                      <span class="password-reminder">Forgot your password? <a href="#">Click Here</a></span>
-                    </div>
-                    <div class="form-group form-group--sm">
-                      <a href="_football_shop-account.html" class="btn btn-primary-inverse btn-lg btn-block">Sign in to your account</a>
-                    </div>
-                  </form>
-                  <!-- Login Form / End -->
-
-                </div>
-              </div>
-              <!-- Login / End -->
-            </div>
-
-            <div class="col-md-6">
-
-              <!-- Register -->
-              <div class="card">
-                <div class="card__header">
-                  <h4>Register Now</h4>
-                </div>
-                <div class="card__content">
-
-                  <!-- Register Form -->
-                  <form action="#">
-                    <div class="form-group">
-                      <label for="register-name">Your Email</label>
-                      <input type="email" name="register-name" id="register-name" class="form-control" placeholder="Enter your email address...">
-                    </div>
-                    <div class="form-group">
-                      <label for="register-password">Your Password</label>
-                      <input type="password" name="register-password" id="register-password" class="form-control" placeholder="Enter your password...">
-                    </div>
-                    <div class="form-group">
-                      <label for="repeat-password">Repeat Password</label>
-                      <input type="password" name="repeat-password" id="repeat-password" class="form-control" placeholder="Repeat your password...">
-                    </div>
-                    <div class="form-group form-group--submit">
-                      <a href="_football_shop-account.html" class="btn btn-default btn-lg btn-block">Create Your Account</a>
-                    </div>
-                  </form>
-                  <!-- Register Form / End -->
-
-                </div>
-              </div>
-              <!-- Register / End -->
-            </div>
-
-          </div>
-        </div>
-      </div>
-
-      <!-- Content / End -->
-    </div>
-
-    <div id="account_section">
-      <!-- Page Heading
-      ================================================== -->
-      <div class="page-heading">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-10 col-md-offset-1">
-              <h1 class="page-heading__title">Your <span class="highlight">Account</span></h1>
-              <ol class="page-heading__breadcrumb breadcrumb">
-                <li><a href="_football_index.html">Home</a></li>
-                <li><a href="_football_shop-list.html">Shop</a></li>
-                <li class="active">Your Account</li>
-              </ol>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Content
-      ================================================== -->
-      <div class="site-content">
-        <div class="container">
-
-          <div class="row">
-
-            <div class="col-md-4">
-
-              <!-- Account Navigation -->
-              <div class="card">
-                <div class="card__content">
-                  <nav class="df-account-navigation">
-                    <ul>
-                      <li class="df-account-navigation__link df-account-navigation__link--active">
-                        <a href="#"><small>Account</small>Personal Information</a>
-                      </li>
-                      <li class="df-account-navigation__link df-account-navigation__link">
-                        <a href="#"><small>Account</small>Billing Information</a>
-                      </li>
-                      <li class="df-account-navigation__link df-account-navigation__link">
-                        <a href="#"><small>Account</small>Shipping Information</a>
-                      </li>
-                    </ul>
-                  </nav>
-                </div>
-              </div>
-              <!-- Account Navigation / End -->
-            </div>
-
-            <div class="col-md-8">
-
-              <!-- Personal Information -->
-              <div class="card card--lg">
-                <div class="card__header">
-                  <h4>Personal Information</h4>
-                </div>
-                <div class="card__content">
-                  <form action="#" class="df-personal-info">
-
-                    <div class="form-group form-group--upload">
-                      <div class="form-group__avatar">
-                        <img src="assets/images/football/samples/avatar-empty.png" alt="">
-                        <div class="form-group__label">
-                          <h6>Profile Photo</h6>
-                          <span>40x40 min size</span>
-                        </div>
-                      </div>
-                      <div class="form-group__upload">
-                        <label class="btn btn-default btn-xs btn-file">
-                          Upload Image <input type="file" style="display: none;">
-                        </label>
-                      </div>
-                    </div>
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="account-email">Email <span class="required">*</span></label>
-                          <input type="email" class="form-control" value="" name="account-email" id="account-email" placeholder="eric_rodgers@yourmail.com">
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="account-username">Username <span class="required">*</span></label>
-                          <input type="text" class="form-control" value="" name="account-username" id="account-username" placeholder="Your Username here...">
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="account-password">Change Password</label>
-                          <input type="password" class="form-control" value="" name="account-password" id="account-password" placeholder="**********">
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="account-password-repeat">Repeat Password</label>
-                          <input type="password" class="form-control" value="" name="account-password-repeat" id="account-password-repeat" placeholder="**********">
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="row">
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="account-first-name">First Name</label>
-                          <input type="text" class="form-control" value="" name="account-first-name" id="account-first-name" placeholder="Eric">
-                        </div>
-                      </div>
-                      <div class="col-md-6">
-                        <div class="form-group">
-                          <label for="account-last-name">Last Name</label>
-                          <input type="text" class="form-control" value="" name="account-last-name" id="account-last-name" placeholder="Rodgers">
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="form-group--submit">
-                      <button type="submit" class="btn btn-primary-inverse btn-lg btn-block">See all the changes</button>
-                    </div>
-
-                  </form>
-                </div>
-              </div>
-              <!-- Personal Information / End -->
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <!-- Content / End -->
-    </div>
     <!-- Footer
     ================================================== -->
     <footer id="footer" class="footer">
@@ -1497,7 +1276,7 @@
   <script src="assets/js/custom.js"></script>
 
   <script type="text/javascript">
-    
+
   </script>
   
   </body>
