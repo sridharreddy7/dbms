@@ -11,12 +11,12 @@
       </action>
       
       <action name="login" class="dbms.Login" method="login">
-            <result name="success">/home.jsp</result>
+            <result name="success">/_football_shop-account.html</result>
             <result name="failure">/error.jsp</result>
       </action>
       
       <action name="signup" class="dbms.SignUp" method="signup">
-            <result name="success">/index.jsp</result>
+            <result name="success">/_football_index.html</result>
             <result name="failure">/error.jsp</result>
       </action>
       
