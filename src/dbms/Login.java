@@ -59,7 +59,7 @@ public class Login extends HttpServlet {
 			 if(!rset.next()){
 //				 return "failure";
 		
-					RequestDispatcher rd = getServletContext().getRequestDispatcher("_football_shop-login.html");
+					RequestDispatcher rd = getServletContext().getRequestDispatcher("_football_index.html");
 					PrintWriter out= response.getWriter();
 					out.println("<font color=red>Either user name or password is wrong.</font>");
 					rd.include(request, response);
