@@ -61,17 +61,25 @@ public class Logout {
 	    	
 		
 		
-		Cookie[] cookie = request.getCookies();
-		if(cookie!=null){
-			int cookieLength = cookie.length;
-			for(int i=0;i<cookieLength;i++){
-				Cookie cki = cookie[i];
-				String ckName = cki.getName();
-				if(ckName.equals("user")){
-					cki.setMaxAge(0);
-				}
-			}
-		}
+//		Cookie[] cookie = request.getCookies();
+//		if(cookie!=null){
+//			int cookieLength = cookie.length;
+//			for(int i=0;i<cookieLength;i++){
+//				Cookie cki = cookie[i];
+//				String ckName = cki.getName();
+//				if(ckName.equals("user")){
+//					cki.setValue(null);
+//					cki.setPath("/Struts2Sample");
+//					cki.setMaxAge(0);
+//					response.addCookie(cki);
+//				}
+//			}
+//		}
+		 Cookie killMyCookie = new Cookie("user", null);
+		 killMyCookie.setMaxAge(0);
+		 killMyCookie.setPath("/");
+		 response.addCookie(killMyCookie);
+		 
 //		response.sendRedirect("_football_shop-login.html");
 		return "success";
 	}

@@ -22,6 +22,7 @@ import org.apache.struts2.ServletActionContext;
 public class Login extends HttpServlet {
 	private String username;
 	private String password;
+	private String email;
 	
 	protected HttpServletRequest request;
 	protected HttpServletResponse response;
@@ -40,7 +41,7 @@ public class Login extends HttpServlet {
 		this.username = username;
 	}
 	
-	public void login() throws ServletException, IOException {
+	public String login() throws ServletException, IOException {
 //		String username1 = request.getParameter("username");
 //		String password1 = request.getParameter("password");
 		
@@ -76,15 +77,24 @@ public class Login extends HttpServlet {
 				 Cookie loginCookie = new Cookie("user", username1);
 				 loginCookie.setMaxAge(60 * 60 * 4);
 				 response.addCookie(loginCookie);
-				 response.sendRedirect("_football_shop-account.html");
+//				 response.sendRedirect("_football_index.jsp");
+				 setEmail(username1);
+				 request.setAttribute("user", username1);
+				 
 				 
 			 }
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		 
+		return "success";
 //		return "success";
+	}
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
 	}
 	
 
