@@ -1,6 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
+<<<<<<< HEAD
+pageEncoding="UTF-8"%>
+<%@ taglib prefix="s" uri="/struts-tags" %>
+=======
     pageEncoding="UTF-8"%>
     <%@ taglib prefix="s" uri="/struts-tags" %>
+>>>>>>> 7d94d468916ee88239eaad8819a375702cb2a9ef
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -134,6 +139,11 @@
               <ul class="main-nav__list">
                 <li class="active"><a href="_football_index.html">Home</a>
                 </li>
+<<<<<<< HEAD
+                <li class=""><a href="#">Matches</a>
+                </li>
+                <li class=""><a href="#">Venues</a>
+=======
                 <li class=""><a href="#">Features</a>
                   <div class="main-nav__megamenu clearfix">
                     <ul class="col-lg-2 col-md-3 col-xs-12 main-nav__ul">
@@ -272,6 +282,7 @@
                       </ul>
                     </li>
                   </ul>
+>>>>>>> 7d94d468916ee88239eaad8819a375702cb2a9ef
                 </li>
                 <li class=""><a href="#">Teams</a>
                 </li>
@@ -279,14 +290,22 @@
                 </li>
                 <li class=""><a href="#">My Account</a>
                 </li>
+<<<<<<< HEAD
+                <li class=""><a href="#">Managers</a>
+=======
                	<li class=""><a href="#"><%request.getAttribute("user"); %> 
                	<s:property value="email"/>username.
                	</a>
+>>>>>>> 7d94d468916ee88239eaad8819a375702cb2a9ef
                 </li>
               </ul>
 
               <ul class="main-nav__list" style="float:right;">
+<<<<<<< HEAD
+                <li class=""><a href="">Logout</a>
+=======
                 <li class="" onclick="logout();"><a href="">Logout</a>
+>>>>>>> 7d94d468916ee88239eaad8819a375702cb2a9ef
               </ul>
             </nav>
             <!-- Main Navigation / End -->
