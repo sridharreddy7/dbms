@@ -16,12 +16,12 @@
       </action>
       
       <action name="signup" class="dbms.SignUp" method="signup">
-            <result name="success">/_football_login.html</result>
+            <result name="success">/_football_login.jsp</result>
             <result name="failure">/_football_404.html</result>
       </action>
       
       <action name="logout" class="dbms.Logout" method="logout">
-            <result name="success">/_football_login.html</result>
+            <result name="success">/_football_login.jsp</result>
             <result name="failure">/_football_404.html</result>
       </action>
       
