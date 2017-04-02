@@ -25,6 +25,15 @@
             <result name="failure">/_football_404.html</result>
       </action>
       
+      <action name="stats" class="dbms.Stats" method="stats">
+            <result name="success">/_football_stats.html</result>
+            <result name="failure">/_football_404.html</result>
+      </action>
+      
+      <action name="teams" class="dbms.Teams" method="teams">
+            <result name="success">/_football_teams.html</result>
+            <result name="failure">/_football_404.html</result>
+      </action>
       
    </package>
 

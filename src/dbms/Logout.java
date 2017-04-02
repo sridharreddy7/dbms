@@ -58,9 +58,7 @@ public class Logout {
 		 if(session != null){
 	    		session.invalidate();
 	    	}
-	    	
-		
-		
+
 //		Cookie[] cookie = request.getCookies();
 //		if(cookie!=null){
 //			int cookieLength = cookie.length;
@@ -80,7 +78,6 @@ public class Logout {
 		 killMyCookie.setPath("/");
 		 response.addCookie(killMyCookie);
 		 
-//		response.sendRedirect("_football_shop-login.html");
 		return "success";
 	}
 }

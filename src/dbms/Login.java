@@ -81,7 +81,6 @@ public class Login extends HttpServlet {
 				 setEmail(username1);
 				 request.setAttribute("user", username1);
 				 
-				 
 			 }
 		} catch (ClassNotFoundException | SQLException e) {
 			// TODO Auto-generated catch block

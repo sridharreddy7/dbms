@@ -54,12 +54,14 @@ public class MainFilter implements Filter {
 		
 		HttpSession session = req.getSession(false);
 		
-		if(session==null && !(uri.endsWith("_football_login.html")) && !uri.endsWith("css")&& !uri.endsWith("js") && !uri.endsWith("jpg") && !uri.endsWith("png") && !uri.endsWith("svg")&& !uri.endsWith("woff")&& !uri.endsWith("woff2")&& !uri.endsWith("ttf")&& !uri.endsWith("php")){
-			res.sendRedirect("_football_login.html");
+		if(session==null && !(uri.endsWith("_football_login.jsp")) && !uri.endsWith("css")&& !uri.endsWith("js") && !uri.endsWith("jpg") && !uri.endsWith("png") && !uri.endsWith("svg")&& !uri.endsWith("woff")&& !uri.endsWith("woff2")&& !uri.endsWith("ttf")&& !uri.endsWith("php")){
+			res.sendRedirect("_football_login.jsp");
 			return;
 		}
 //		else if(uri.endsWith("_football"))
 		else{
+			
+//			request.setAttribute("user", session.getAttribute("user"));
 			chain.doFilter(request, response);
 		}
 

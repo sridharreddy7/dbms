@@ -1,3 +1,7 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ taglib prefix="s" uri="/struts-tags" %>
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -364,7 +368,7 @@
 
       //alert-danger,alert-warning,alert-info,alert-succes
       //alert-dismissable
-      var d = "<div class='alert "+c +" alert-dismissible'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>×</span></button><strong>"+strong+"</strong> "+text+"</div>";
+      var d = "<div class='alert "+c +" alert-dismissible'><button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>Ã</span></button><strong>"+strong+"</strong> "+text+"</div>";
       $("#snackbar").html(d);
         
       // Add the "show" class to DIV
