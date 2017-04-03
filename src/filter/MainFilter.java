@@ -1,12 +1,10 @@
 package filter;
 
 import java.io.IOException;
-import java.io.PrintWriter;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -49,8 +47,9 @@ public class MainFilter implements Filter {
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse res = (HttpServletResponse) response;
 		
+		StringBuffer test = req.getRequestURL();
 		String uri = req.getRequestURI();
-//		System.out.println(uri);
+		System.out.println(test);
 //		this.context.log("Requested Resource::"+uri);
 		
 		HttpSession session = req.getSession(false);
@@ -64,13 +63,18 @@ public class MainFilter implements Filter {
 				
 				if(name.equals("user")){
 					isUser=true;
-					 int age = cki.getMaxAge();
-					System.out.println(age);
+					System.out.println(cki.getValue());
+					req.setAttribute("email", cki.getValue());
+					request.setAttribute("email", cki.getValue());
 				}
 			}
 		}
+		System.out.println("is user here ->"+isUser);
+//		System.out.println("is user here ->"+uri);
 		
-		if(isUser && session==null &&  !(uri.endsWith("_football_login.jsp")) && !uri.endsWith("css")&& !uri.endsWith("js") && !uri.endsWith("jpg") && !uri.endsWith("png") && !uri.endsWith("svg")&& !uri.endsWith("woff")&& !uri.endsWith("woff2")&& !uri.endsWith("ttf")&& !uri.endsWith("php")){
+		if(!isUser  && !(uri.endsWith("teams")) && !(uri.endsWith("_football_login.jsp")) && !uri.endsWith("css")&& !uri.endsWith("js") && !uri.endsWith("jpg") && !uri.endsWith("png") && !uri.endsWith("svg")&& !uri.endsWith("woff")&& !uri.endsWith("woff2")&& !uri.endsWith("ttf")&& !uri.endsWith("php")){
+
+			System.out.println("uri here ->"+uri);
 			res.sendRedirect("_football_login.jsp");
 			return;
 		}

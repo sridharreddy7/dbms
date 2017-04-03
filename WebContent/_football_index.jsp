@@ -279,8 +279,11 @@
                 </li>
                 <li class=""><a href="#">My Account</a>
                 </li>
-               	<li class=""><a href="#"><%request.getAttribute("user"); %> 
-               	<s:property value="email"/>
+               	<li class=""><a href="#">
+	               	<%
+	               	String email = (String)request.getAttribute("email"); 
+	               	%> 
+	               	<%=email %>
                	</a>
                 </li>
               </ul>
