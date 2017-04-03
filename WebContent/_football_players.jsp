@@ -1,3 +1,6 @@
+<%@page import="org.json.*"%>
+<%@page import="java.util.*"%>
+<%@page import="javax.servlet.http.Cookie"%>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -197,17 +200,36 @@
                       <tr>
                         <th colspan="8" class="team-roster-table__header">Offense</th>
                       </tr>
+                      <%
+                      JSONArray test = (JSONArray)request.getAttribute("json");
+  	        			for(int i = 0; i < test.length(); i++)
+  	        			{
+  	        		      JSONObject jsonObject = test.getJSONObject(i);
+  	        		      String player_id = jsonObject.get("player_id").toString();
+  	        		      String player_name = jsonObject.get("player_name").toString();
+  	        		      String dob = jsonObject.get("dob").toString();
+/*   	        		      String name = jsonObject.get("teamName").toString();
+  	        		      String won = jsonObject.get("won").toString();
+  	        		      String year = request.getParameter("year"); */
+                      
+                      %>
+                      
+                      
+                      
                       <tr>
-                        <td class="team-roster-table__number">28</td>
-                        <td class="team-roster-table__name">Steven Masterson</td>
+                        <td class="team-roster-table__number"><%=player_id %></td>
+                        <td class="team-roster-table__name"><%=player_name %></td>
                         <td class="team-roster-table__position">Quarterback</td>
-                        <td class="team-roster-table__age">18</td>
+                        <td class="team-roster-table__age"><%=dob %></td>
                         <td class="team-roster-table__height">6'4"</td>
                         <td class="team-roster-table__weight">225 lbs</td>
                         <td class="team-roster-table__status text-success">Active</td>
                         <td class="team-roster-table__college">Marinaton State</td>
                       </tr>
-                      <tr>
+                      <%
+  	        			}
+                      %>
+<!--                       <tr>
                         <td class="team-roster-table__number">07</td>
                         <td class="team-roster-table__name">Scott Murdoch</td>
                         <td class="team-roster-table__position">Wide Receiver</td>
@@ -306,7 +328,7 @@
                         <td class="team-roster-table__weight">200 lbs</td>
                         <td class="team-roster-table__status text-success">Active</td>
                         <td class="team-roster-table__college">California College</td>
-                      </tr>
+                      </tr> -->
                       <tr>
                         <th colspan="8" class="team-roster-table__header">Defense</th>
                       </tr>

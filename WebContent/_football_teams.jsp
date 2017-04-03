@@ -288,6 +288,10 @@
 	        		      String lost = jsonObject.get("lost").toString();
 	        		      String name = jsonObject.get("teamName").toString();
 	        		      String won = jsonObject.get("won").toString();
+	        		      String year = request.getParameter("year");
+	        		      if(year==null){
+	        		    	  year="2008";
+	        		      }
 	        		      %>
 	        		       <%-- <h6 class="team-meta__name"><%=name %></h6> --%>
 	        		       <%-- <h6 class="team-meta__name"><%=won %></h6> --%>
@@ -300,7 +304,7 @@
 			                          <img src="assets/images/samples/logos/pirates_shield.png" alt="">
 			                        </figure>
 			                        <div class="team-meta__info">
-			                          <h6 class="team-meta__name"><%=name %></h6>
+			                          <a href="/Struts2Sample/players?team=<%=name %>&year=<%=year %>" ><h6 class="team-meta__name"><%=name %></h6></a>
 			                          <span class="team-meta__place">Bebop Institute</span>
 			                        </div>
 			                      </div>

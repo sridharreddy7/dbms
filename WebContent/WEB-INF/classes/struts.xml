@@ -35,6 +35,10 @@
             <result name="failure">/_football_404.html</result>
       </action>
       
+      <action name="players" class="dbms.Players" method="players">
+            <result name="success">/_football_players.jsp</result>
+            <result name="failure">/_football_404.html</result>
+      </action>
    </package>
 
    
