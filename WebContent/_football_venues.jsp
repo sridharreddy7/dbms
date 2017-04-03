@@ -149,7 +149,7 @@
               </ul>
 
               <ul class="main-nav__list" style="float:right;">
-                <li class=""><a href="">Logout</a>
+                <li class=""><a href="/Struts2Sample/logout">Logout</a>
               </ul>
             </nav>
             <!-- Main Navigation / End -->
