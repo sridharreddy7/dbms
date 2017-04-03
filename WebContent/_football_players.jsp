@@ -136,11 +136,11 @@
                 </li>
                 <li class=""><a href="#">Matches</a>
                 </li>
-                <li class=""><a href="#">Venues</a>
+                <li class=""><a href="/Struts2Sample/venues">Venues</a>
                 </li>
-                <li class=""><a href="#">Teams</a>
+                <li class=""><a href="/Struts2Sample/teams">Teams</a>
                 </li>
-                <li class=""><a href="#">Stats</a>
+                <li class=""><a href="/Struts2Sample/stats">Stats</a>
                 </li>
                 <li class=""><a href="#">My Account</a>
                 </li>
@@ -149,7 +149,7 @@
               </ul>
 
               <ul class="main-nav__list" style="float:right;">
-                <li class=""><a href="">Logout</a>
+                <li class=""><a href="/Struts2Sample/logout">Logout</a>
               </ul>
             </nav>
             <!-- Main Navigation / End -->
@@ -179,7 +179,7 @@
           <div class="col-md-12">
             <div class="card card--has-table">
               <div class="card__header">
-                <h4>Complete Roster</h4>
+                <h4>Players List</h4>
               </div>
               <div class="card__content">
                 <div class="table-responsive">
@@ -188,17 +188,17 @@
                       <tr>
                         <th class="team-roster-table__number">NBR</th>
                         <th class="team-roster-table__name">Player Name</th>
-                        <th class="team-roster-table__position">Position</th>
+                        <th class="team-roster-table__position">Batting</th>
                         <th class="team-roster-table__age">Age</th>
-                        <th class="team-roster-table__height">Height</th>
-                        <th class="team-roster-table__weight">Weight</th>
+                        <th class="team-roster-table__height">Bowling</th>
+                        <!-- <th class="team-roster-table__weight">Weight</th> -->
                         <th class="team-roster-table__status">Status</th>
-                        <th class="team-roster-table__college">College</th>
+                        <!-- <th class="team-roster-table__college">College</th> -->
                       </tr>
                     </thead>
                     <tbody>
                       <tr>
-                        <th colspan="8" class="team-roster-table__header">Offense</th>
+                        <!-- <th colspan="8" class="team-roster-table__header">Offense</th> -->
                       </tr>
                       <%
                       JSONArray test = (JSONArray)request.getAttribute("json");
@@ -208,6 +208,9 @@
   	        		      String player_id = jsonObject.get("player_id").toString();
   	        		      String player_name = jsonObject.get("player_name").toString();
   	        		      String dob = jsonObject.get("dob").toString();
+  	        		      String batting = jsonObject.get("batting").toString();
+  	        		      String bowling = jsonObject.get("bowling").toString();
+  	        		    String age = jsonObject.get("age").toString();
 /*   	        		      String name = jsonObject.get("teamName").toString();
   	        		      String won = jsonObject.get("won").toString();
   	        		      String year = request.getParameter("year"); */
@@ -219,12 +222,12 @@
                       <tr>
                         <td class="team-roster-table__number"><%=player_id %></td>
                         <td class="team-roster-table__name"><%=player_name %></td>
-                        <td class="team-roster-table__position">Quarterback</td>
-                        <td class="team-roster-table__age"><%=dob %></td>
-                        <td class="team-roster-table__height">6'4"</td>
-                        <td class="team-roster-table__weight">225 lbs</td>
+                        <td class="team-roster-table__position"><%=batting %></td>
+                        <td class="team-roster-table__age"><%=age %></td>
+                        <td class="team-roster-table__height"><%=bowling %></td>
+                        <!-- <td class="team-roster-table__weight">225 lbs</td> -->
                         <td class="team-roster-table__status text-success">Active</td>
-                        <td class="team-roster-table__college">Marinaton State</td>
+                        <!-- <td class="team-roster-table__college">Marinaton State</td> -->
                       </tr>
                       <%
   	        			}
@@ -329,7 +332,7 @@
                         <td class="team-roster-table__status text-success">Active</td>
                         <td class="team-roster-table__college">California College</td>
                       </tr> -->
-                      <tr>
+  <!--                     <tr>
                         <th colspan="8" class="team-roster-table__header">Defense</th>
                       </tr>
                       <tr>
@@ -467,7 +470,7 @@
                         <td class="team-roster-table__weight">-</td>
                         <td class="team-roster-table__status text-success">Active</td>
                         <td class="team-roster-table__college">Shelldow Institute</td>
-                      </tr>
+                      </tr> -->
                     </tbody>
                   </table>
                 </div>
@@ -492,7 +495,7 @@
           <div class="footer-info__inner">
             <!-- Footer Logo -->
             <div class="footer-logo footer-logo--has-txt">
-              <a href="_football_index.html">
+              <a href="_football_index.jsp">
                 <img src="assets/images/cricket/logos/rsz_indian_premier_leaguesvg.png" alt="Alchemists" class="footer-logo__img">
                 <div class="footer-logo__heading">
                   <h5 class="footer-logo__txt">Indian Premier League</h5>
@@ -542,11 +545,11 @@
           <div class="footer-secondary__inner">
             <div class="row">
               <div class="col-md-4">
-                <div class="footer-copyright"><a href="_football_index.html">IPL</a> 2017 &nbsp; | &nbsp; All Rights Reserved</div>
+                <div class="footer-copyright"><a href="_football_index.jsp">IPL</a> 2017 &nbsp; | &nbsp; All Rights Reserved</div>
               </div>
               <div class="col-md-8">
                 <ul class="footer-nav footer-nav--right footer-nav--sm">
-                  <li class="footer-nav__item"><a href="#">Home</a></li>
+                  <li class="footer-nav__item"><a href="/Struts2Sample/">Home</a></li>
                   <li class="footer-nav__item"><a href="#">Features</a></li>
                   <li class="footer-nav__item"><a href="#">Statistics</a></li>
                   <li class="footer-nav__item"><a href="#">The Team</a></li>

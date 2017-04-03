@@ -1,3 +1,6 @@
+<%@page import="org.json.*"%>
+<%@page import="java.util.*"%>
+<%@page import="javax.servlet.http.Cookie"%>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -135,9 +138,9 @@
                 </li>
                 <li class=""><a href="#">Venues</a>
                 </li>
-                <li class=""><a href="#">Teams</a>
+                <li class=""><a href="/Struts2Sample/teams">Teams</a>
                 </li>
-                <li class=""><a href="#">Stats</a>
+                <li class=""><a href="/Struts2Sample/stats">Stats</a>
                 </li>
                 <li class=""><a href="#">My Account</a>
                 </li>
@@ -174,21 +177,34 @@
 
 
           <!-- Player -->
+         		 <%
+                      JSONArray test = (JSONArray)request.getAttribute("json");
+  	        			for(int i = 0; i < test.length(); i++)
+  	        			{
+  	        		      JSONObject jsonObject = test.getJSONObject(i);
+  	        		      String venue_name = jsonObject.get("venue_name").toString();
+  	        		      String matches_hosted = jsonObject.get("matches_hosted").toString();
+  	        		      String city = jsonObject.get("city").toString();
+  	        		      String country = jsonObject.get("country").toString();
+                      
+                      %>
+          
           <div class="team-roster__item card card--no-paddings">
             <div class="card__content">
 
               <!-- Player Photo -->
               <figure class="team-roster__player-img">
-                <a href="_football_player-overview.html"><img src="assets/images/football/samples/roster-player1.jpg" alt=""></a>
+                <a href="_football_player-overview.html"><img src="#" alt=""></a>
               </figure>
               <!-- Player Photo / End-->
 
               <!-- Player Details -->
+              
               <div class="card__header team-roster__player-details">
                 <div class="team-roster__player-info">
                   <h3 class="team-roster__player-name">
-                    <span class="team-roster__player-first-name">Steven</span>
-                    <span class="team-roster__player-last-name">Masterson</span>
+                    <span class="team-roster__player-first-name"><%=venue_name %></span>
+                    <!-- <span class="team-roster__player-last-name">Masterson</span> -->
                   </h3>
                 </div>
               </div>
@@ -197,36 +213,40 @@
               <!-- Player Meta Info -->
               <div class="team-roster__meta">
                 <div class="team-roster__meta-item team-roster__meta-item--lg">
-                  <div class="team-roster__meta-value team-roster__meta-value--accent">QB</div>
-                  <div class="team-roster__meta-label">Position</div>
+                  <div class="team-roster__meta-value team-roster__meta-value--accent"><%=matches_hosted %></div>
+                  <div class="team-roster__meta-label">Matches</div>
                 </div>
                 <div class="team-roster__meta-item">
-                  <div class="team-roster__meta-value">28</div>
-                  <div class="team-roster__meta-label">Number</div>
+                  <div class="team-roster__meta-value"><%=city %></div>
+                  <div class="team-roster__meta-label">City</div>
                 </div>
                 <div class="team-roster__meta-item">
-                  <div class="team-roster__meta-value">23.9</div>
-                  <div class="team-roster__meta-label">Stat AVG</div>
+                  <div class="team-roster__meta-value"><%=country%></div>
+                  <div class="team-roster__meta-label">Country</div>
                 </div>
               </div>
               <!-- Player Meta Info / End -->
 
             </div>
           </div>
+          <%
+          	}
+          %>
+          
           <!-- Player / End -->
 
 
           <!-- Player -->
-          <div class="team-roster__item card card--no-paddings">
+         <!--  <div class="team-roster__item card card--no-paddings">
             <div class="card__content">
 
-              <!-- Player Photo -->
+              Player Photo
               <figure class="team-roster__player-img">
                 <a href="_football_player-overview.html"><img src="assets/images/football/samples/roster-player2.jpg" alt=""></a>
               </figure>
-              <!-- Player Photo / End-->
+              Player Photo / End
 
-              <!-- Player Details -->
+              Player Details
               <div class="card__header team-roster__player-details">
                 <div class="team-roster__player-info">
                   <h3 class="team-roster__player-name">
@@ -235,9 +255,9 @@
                   </h3>
                 </div>
               </div>
-              <!-- Player Details / End -->
+              Player Details / End
 
-              <!-- Player Meta Info -->
+              Player Meta Info
               <div class="team-roster__meta">
                 <div class="team-roster__meta-item team-roster__meta-item--lg">
                   <div class="team-roster__meta-value team-roster__meta-value--accent">RB</div>
@@ -252,24 +272,24 @@
                   <div class="team-roster__meta-label">Stat AVG</div>
                 </div>
               </div>
-              <!-- Player Meta Info / End -->
+              Player Meta Info / End
 
             </div>
           </div>
-          <!-- Player / End -->
+          Player / End
 
 
-          <!-- Player -->
+          Player
           <div class="team-roster__item card card--no-paddings">
             <div class="card__content">
 
-              <!-- Player Photo -->
+              Player Photo
               <figure class="team-roster__player-img">
                 <a href="_football_player-overview.html"><img src="assets/images/football/samples/roster-player3.jpg" alt=""></a>
               </figure>
-              <!-- Player Photo / End-->
+              Player Photo / End
 
-              <!-- Player Details -->
+              Player Details
               <div class="card__header team-roster__player-details">
                 <div class="team-roster__player-info">
                   <h3 class="team-roster__player-name">
@@ -278,9 +298,9 @@
                   </h3>
                 </div>
               </div>
-              <!-- Player Details / End -->
+              Player Details / End
 
-              <!-- Player Meta Info -->
+              Player Meta Info
               <div class="team-roster__meta">
                 <div class="team-roster__meta-item team-roster__meta-item--lg">
                   <div class="team-roster__meta-value team-roster__meta-value--accent">WR</div>
@@ -295,24 +315,24 @@
                   <div class="team-roster__meta-label">Stat AVG</div>
                 </div>
               </div>
-              <!-- Player Meta Info / End -->
+              Player Meta Info / End
 
             </div>
           </div>
-          <!-- Player / End -->
+          Player / End
 
 
-          <!-- Player -->
+          Player
           <div class="team-roster__item card card--no-paddings">
             <div class="card__content">
 
-              <!-- Player Photo -->
+              Player Photo
               <figure class="team-roster__player-img">
                 <a href="_football_player-overview.html"><img src="assets/images/football/samples/roster-player1.jpg" alt=""></a>
               </figure>
-              <!-- Player Photo / End-->
+              Player Photo / End
 
-              <!-- Player Details -->
+              Player Details
               <div class="card__header team-roster__player-details">
                 <div class="team-roster__player-info">
                   <h3 class="team-roster__player-name">
@@ -321,9 +341,9 @@
                   </h3>
                 </div>
               </div>
-              <!-- Player Details / End -->
+              Player Details / End
 
-              <!-- Player Meta Info -->
+              Player Meta Info
               <div class="team-roster__meta">
                 <div class="team-roster__meta-item team-roster__meta-item--lg">
                   <div class="team-roster__meta-value team-roster__meta-value--accent">QB</div>
@@ -338,24 +358,24 @@
                   <div class="team-roster__meta-label">Stat AVG</div>
                 </div>
               </div>
-              <!-- Player Meta Info / End -->
+              Player Meta Info / End
 
             </div>
           </div>
-          <!-- Player / End -->
+          Player / End
 
 
-          <!-- Player -->
+          Player
           <div class="team-roster__item card card--no-paddings">
             <div class="card__content">
 
-              <!-- Player Photo -->
+              Player Photo
               <figure class="team-roster__player-img">
                 <a href="_football_player-overview.html"><img src="assets/images/football/samples/roster-player2.jpg" alt=""></a>
               </figure>
-              <!-- Player Photo / End-->
+              Player Photo / End
 
-              <!-- Player Details -->
+              Player Details
               <div class="card__header team-roster__player-details">
                 <div class="team-roster__player-info">
                   <h3 class="team-roster__player-name">
@@ -364,9 +384,9 @@
                   </h3>
                 </div>
               </div>
-              <!-- Player Details / End -->
+              Player Details / End
 
-              <!-- Player Meta Info -->
+              Player Meta Info
               <div class="team-roster__meta">
                 <div class="team-roster__meta-item team-roster__meta-item--lg">
                   <div class="team-roster__meta-value team-roster__meta-value--accent">RB</div>
@@ -381,24 +401,24 @@
                   <div class="team-roster__meta-label">Stat AVG</div>
                 </div>
               </div>
-              <!-- Player Meta Info / End -->
+              Player Meta Info / End
 
             </div>
           </div>
-          <!-- Player / End -->
+          Player / End
 
 
-          <!-- Player -->
+          Player
           <div class="team-roster__item card card--no-paddings">
             <div class="card__content">
 
-              <!-- Player Photo -->
+              Player Photo
               <figure class="team-roster__player-img">
                 <a href="_football_player-overview.html"><img src="assets/images/football/samples/roster-player3.jpg" alt=""></a>
               </figure>
-              <!-- Player Photo / End-->
+              Player Photo / End
 
-              <!-- Player Details -->
+              Player Details
               <div class="card__header team-roster__player-details">
                 <div class="team-roster__player-info">
                   <h3 class="team-roster__player-name">
@@ -407,9 +427,9 @@
                   </h3>
                 </div>
               </div>
-              <!-- Player Details / End -->
+              Player Details / End
 
-              <!-- Player Meta Info -->
+              Player Meta Info
               <div class="team-roster__meta">
                 <div class="team-roster__meta-item team-roster__meta-item--lg">
                   <div class="team-roster__meta-value team-roster__meta-value--accent">WR</div>
@@ -424,10 +444,10 @@
                   <div class="team-roster__meta-label">Stat AVG</div>
                 </div>
               </div>
-              <!-- Player Meta Info / End -->
+              Player Meta Info / End
 
             </div>
-          </div>
+          </div> -->
           <!-- Player / End -->
 
 

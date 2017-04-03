@@ -1,3 +1,7 @@
+<%@page import="org.json.*"%>
+<%@page import="java.util.*"%>
+<%@page import="javax.servlet.http.Cookie"%>
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -60,7 +64,7 @@
     <!-- Header Mobile -->
     <div class="header-mobile clearfix" id="header-mobile">
       <div class="header-mobile__logo">
-        <a href="_football_index.html"><img src="assets/images/cricket/logos/rsz_indian_premier_leaguesvg.png" alt="Alchemists" class="header-mobile__logo-img"></a>
+        <a href="/Struts2Sample/"><img src="assets/images/cricket/logos/rsz_indian_premier_leaguesvg.png" alt="Alchemists" class="header-mobile__logo-img"></a>
       </div>
       <div class="header-mobile__inner">
         <a id="header-mobile__toggle" class="burger-menu-icon"><span class="burger-menu-icon__line"></span></a>
@@ -122,22 +126,22 @@
   
             <!-- Header Logo -->
             <div class="header-logo">
-              <a href="_football_index.html"><img src="assets/images/cricket/logos/rsz_indian_premier_leaguesvg.png" alt="Alchemists" class="header-logo__img"></a>
+              <a href="/Struts2Sample/"><img src="assets/images/cricket/logos/rsz_indian_premier_leaguesvg.png" alt="Alchemists" class="header-logo__img"></a>
             </div>
             <!-- Header Logo / End -->
   
             <!-- Main Navigation -->
             <nav class="main-nav clearfix">
               <ul class="main-nav__list">
-                <li class="active"><a href="_football_index.html">Home</a>
+                <li class="active"><a href="/Struts2Sample/">Home</a>
                 </li>
                 <li class=""><a href="#">Matches</a>
                 </li>
-                <li class=""><a href="#">Venues</a>
+                <li class=""><a href="/Struts2Sample/venues">Venues</a>
                 </li>
-                <li class=""><a href="#">Teams</a>
+                <li class=""><a href="/Struts2Sample/teams">Teams</a>
                 </li>
-                <li class=""><a href="#">Stats</a>
+                <li class=""><a href="/Struts2Sample/stats">Stats</a>
                 </li>
                 <li class=""><a href="#">My Account</a>
                 </li>
@@ -146,7 +150,7 @@
               </ul>
 
               <ul class="main-nav__list" style="float:right;">
-                <li class=""><a href="">Logout</a>
+                <li class=""><a href="/Struts2Sample/logout">Logout</a>
               </ul>
             </nav>
             <!-- Main Navigation / End -->
@@ -176,7 +180,7 @@
           <div class="container">
             <a href="#" class="content-filter__toggle"></a>
             <ul class="content-filter__list">
-              <li class="content-filter__item "><a href="_football_teams.html" class="content-filter__link"><small>All Teams</small>Overview</a></li>
+              <li class="content-filter__item "><a href="/Struts2Sample/teams" class="content-filter__link"><small>All Teams</small>Overview</a></li>
               <li class="content-filter__item content-filter__item--active"><a href="_football_team-roster.html" class="content-filter__link"><small>All Teams</small>List</a></li>
             </ul>
           </div>
@@ -218,22 +222,36 @@
                   </tr>
                 </thead>
                 <tbody>
+                
+                  <%
+                    JSONArray test = (JSONArray)request.getAttribute("json");
+	        		for(int i = 0; i < test.length(); i++)
+	        		{
+	        		      JSONObject jsonObject = test.getJSONObject(i);
+	        		      String pos = jsonObject.get("pos").toString();
+	        		      String total = jsonObject.get("total").toString();
+	        		      String lost = jsonObject.get("lost").toString();
+	        		      String name = jsonObject.get("teamName").toString();
+	        		      String won = jsonObject.get("won").toString();
+
+	        		      %>                
+                
                   <tr>
-                    <td class="team-standings__pos">01</td>
+                    <td class="team-standings__pos"><%=pos %></td>
                     <td class="team-standings__team">
                       <div class="team-meta">
                         <figure class="team-meta__logo">
                           <img src="assets/images/samples/logos/pirates_shield.png" alt="">
                         </figure>
                         <div class="team-meta__info">
-                          <h6 class="team-meta__name">L.A Pirates</h6>
-                          <span class="team-meta__place">Bebop Institute</span>
+                          <h6 class="team-meta__name"><%=name %></h6>
+                          <!-- <span class="team-meta__place">Bebop Institute</span> -->
                         </div>
                       </div>
                     </td>
-                    <td class="team-standings__win">10</td>
-                    <td class="team-standings__lose">1</td>
-                    <td class="team-standings__ties">0</td>
+                    <td class="team-standings__win"><%=won %></td>
+                    <td class="team-standings__lose"><%=lost %></td>
+                    <td class="team-standings__ties"><%=total %></td>
                     <td class="team-standings__pct">.909</td>
                     <td class="team-standings__home">5-1</td>
                     <td class="team-standings__road">5-0</td>
@@ -244,8 +262,10 @@
                     <td class="team-standings__diff text-success">+103</td>
                     <td class="team-standings__strk">W10</td>
                   </tr>
-
-                  <tr>
+				<%
+					}
+	        		%>
+<!--                   <tr>
                     <td class="team-standings__pos">02</td>
                     <td class="team-standings__team">
                       <div class="team-meta">
@@ -486,7 +506,7 @@
                     <td class="team-standings__pa">352</td>
                     <td class="team-standings__diff text-danger">-155</td>
                     <td class="team-standings__strk">L12</td>
-                  </tr>
+                  </tr> -->
 
                 </tbody>
               </table>
@@ -510,7 +530,7 @@
               <div class="glossary__item"><span class="glossary__abbr">Home:</span> Home Record</div>
               <div class="glossary__item"><span class="glossary__abbr">LGR:</span> League Record</div>
               <div class="glossary__item"><span class="glossary__abbr">DIFF:</span> Point Differential</div>
-              <div class="glossary__item"><span class="glossary__abbr">T:</span> Ties</div>
+              <div class="glossary__item"><span class="glossary__abbr">T:</span> Total</div>
               <div class="glossary__item"><span class="glossary__abbr">ROAD:</span> Road Record</div>
               <div class="glossary__item"><span class="glossary__abbr">PF:</span> Total Points For</div>
               <div class="glossary__item"><span class="glossary__abbr">STRK:</span> Current Streak</div>
@@ -536,7 +556,7 @@
           <div class="footer-info__inner">
             <!-- Footer Logo -->
             <div class="footer-logo footer-logo--has-txt">
-              <a href="_football_index.html">
+              <a href="/Struts2Sample/">
                 <img src="assets/images/cricket/logos/rsz_indian_premier_leaguesvg.png" alt="Alchemists" class="footer-logo__img">
                 <div class="footer-logo__heading">
                   <h5 class="footer-logo__txt">Indian Premier League</h5>
@@ -586,7 +606,7 @@
           <div class="footer-secondary__inner">
             <div class="row">
               <div class="col-md-4">
-                <div class="footer-copyright"><a href="_football_index.html">IPL</a> 2017 &nbsp; | &nbsp; All Rights Reserved</div>
+                <div class="footer-copyright"><a href="/Struts2Sample/">IPL</a> 2017 &nbsp; | &nbsp; All Rights Reserved</div>
               </div>
               <div class="col-md-8">
                 <ul class="footer-nav footer-nav--right footer-nav--sm">

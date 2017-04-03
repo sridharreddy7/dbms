@@ -132,13 +132,13 @@
             <!-- Main Navigation -->
             <nav class="main-nav clearfix">
               <ul class="main-nav__list">
-                <li class=""><a href="_football_index.html">Home</a>
+                <li class=""><a href="/Struts2Sample/">Home</a>
                 </li>
                 <li class=""><a href="#">Matches</a>
                 </li>
-                <li class=""><a href="#">Venues</a>
+                <li class=""><a href="/Struts2Sample/venues">Venues</a>
                 </li>
-                <li class=""><a href="#">Teams</a>
+                <li class=""><a href="/Struts2Sample/teams">Teams</a>
                 </li>
                 <li class="active"><a href="#">Stats</a>
                 </li>
@@ -149,7 +149,7 @@
               </ul>
 
               <ul class="main-nav__list" style="float:right;">
-                <li class=""><a href="">Logout</a>
+                <li class=""><a href="/Struts2Sample/logout">Logout</a>
               </ul>
             </nav>
             <!-- Main Navigation / End -->

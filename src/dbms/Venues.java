@@ -15,28 +15,14 @@ import org.apache.struts2.ServletActionContext;
 import org.json.JSONArray;
 import org.json.JSONObject;
 
-public class Players {
+public class Venues {
 	
 	private JSONArray resJsonArray = new JSONArray();
 	
-	public String players() throws IOException, ClassNotFoundException, SQLException{
+	public String venues() throws IOException, ClassNotFoundException, SQLException{
+		
 		HttpServletRequest request = ServletActionContext.getRequest();
 		HttpServletResponse response = ServletActionContext.getResponse();
-		
-		String team = (String)request.getParameter("year");
-		String year = (String)request.getParameter("team");
-		
-//		team = '\''+team+'\'';
-		year = '\''+year+'\'';
-		
-		System.out.println(team);
-		
-		System.out.println(year);
-		if(year==null){
-			year="2008";
-		}
-		
-		int yearVal = Integer.parseInt(team);
 		
 		Cookie[] checkTheCookie = request.getCookies();
 		boolean isUser= false;
@@ -60,22 +46,18 @@ public class Players {
 		
 //		ResultSet rset = stmt.executeQuery ("select TEAM_NAME from TEAM");
 //		ResultSet rset = stmt.executeQuery ("select team_name,won from team t, (select count(match_winner) as won,match.MATCH_WINNER from match natural join season where season_year = "+year+" group by match_winner)  winners  where winners.match_winner = t.team_id");
-		ResultSet rset = stmt.executeQuery ("select p.player_id,p.player_name,p.dob,bs.batting_hand,bos.BOWLING_SKILL from (select distinct player_id,player_name,dob,player.BATTING_HAND,player.BOWLING_SKILL from player natural join player_match natural join team natural join match natural join season  where season_year = "+team+" and team_name = "+year+") p,batting_style bs,bowling_style bos where p.batting_hand = bs.batting_id and p.BOWLING_SKILL = bos.BOWLING_id");
+		ResultSet rset = stmt.executeQuery ("select ven.venue_name, ven.matches_hosted, c.CITY_NAME, co.COUNTRY_NAME from (select ve.venue_name,v.city_id,ve.Matches_Hosted from  (SELECT venue.venue_name, count(venue.venue_name) AS Matches_Hosted  FROM   match  INNER JOIN venue  ON match.venue_id = venue.venue_id  GROUP BY venue.venue_name  ORDER BY matches_hosted DESC) ve, venue v where v.venue_name = ve.venue_name) ven ,city c, country co where ven.city_id = c.city_id and c.COUNTRY_ID = co.COUNTRY_ID");
 		
 //		int count=1;
 		while (rset.next ()){
 			JSONObject tempJson = new JSONObject();
 //			tempJson.put("pos", count);
 //			count++;
-			tempJson.put("player_id", rset.getString(1));
-			tempJson.put("player_name", rset.getString(2));
-			tempJson.put("dob", rset.getString(3));
-			String yearBorn = rset.getString(3);
-			String[] yearSplit = yearBorn.split("-");
-			  int age = 2017-Integer.parseInt(yearSplit[0]);
-			  tempJson.put("age", age);
-			tempJson.put("batting", rset.getString(4));
-			tempJson.put("bowling", rset.getString(5));
+			tempJson.put("venue_name", rset.getString(1));
+			tempJson.put("matches_hosted", rset.getString(2));
+			tempJson.put("city", rset.getString(3));
+			tempJson.put("country", rset.getString(4));
+
 //			tempJson.put("lost", rset.getString(4));
 //		  	nameList.add(rset.getString(1));
 //		  	resJson.put("teamName", rset.getString(1));
@@ -84,7 +66,6 @@ public class Players {
 		
 //		System.out.println(getResJsonArray().length());
 		request.setAttribute("json", getResJsonArray());
-		
 		return "success";
 	}
 
