@@ -11,6 +11,7 @@ import javax.servlet.ServletException;
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -44,17 +45,32 @@ public class MainFilter implements Filter {
 
 		// pass the request along the filter chain
 		
-		System.out.println("herer");
+//		System.out.println("herer");
 		HttpServletRequest req = (HttpServletRequest) request;
 		HttpServletResponse res = (HttpServletResponse) response;
 		
 		String uri = req.getRequestURI();
-		System.out.println(uri);
+//		System.out.println(uri);
 //		this.context.log("Requested Resource::"+uri);
 		
 		HttpSession session = req.getSession(false);
 		
-		if(session==null && !(uri.endsWith("_football_login.jsp")) && !uri.endsWith("css")&& !uri.endsWith("js") && !uri.endsWith("jpg") && !uri.endsWith("png") && !uri.endsWith("svg")&& !uri.endsWith("woff")&& !uri.endsWith("woff2")&& !uri.endsWith("ttf")&& !uri.endsWith("php")){
+//		Cookie checkTheCookie = new Cookie("user", null);
+		boolean isUser=false;
+		Cookie[] checkTheCookie = req.getCookies();
+		if(checkTheCookie!=null){
+			for(Cookie cki: checkTheCookie){
+				String name = cki.getName();
+				
+				if(name.equals("user")){
+					isUser=true;
+					 int age = cki.getMaxAge();
+					System.out.println(age);
+				}
+			}
+		}
+		
+		if(isUser && session==null &&  !(uri.endsWith("_football_login.jsp")) && !uri.endsWith("css")&& !uri.endsWith("js") && !uri.endsWith("jpg") && !uri.endsWith("png") && !uri.endsWith("svg")&& !uri.endsWith("woff")&& !uri.endsWith("woff2")&& !uri.endsWith("ttf")&& !uri.endsWith("php")){
 			res.sendRedirect("_football_login.jsp");
 			return;
 		}

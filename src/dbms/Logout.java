@@ -73,10 +73,25 @@ public class Logout {
 //				}
 //			}
 //		}
-		 Cookie killMyCookie = new Cookie("user", null);
-		 killMyCookie.setMaxAge(0);
-		 killMyCookie.setPath("/");
-		 response.addCookie(killMyCookie);
+		 Cookie[] cookies = request.getCookies();
+		 
+		 if(cookies!=null){
+			 for(Cookie cki: cookies){
+				 if(cki.getName().equals("user")){
+					 cki.setValue(null);
+					 cki.setMaxAge(0);
+					 response.addCookie(cki);
+					 break;
+				 }
+			 }
+			 
+		 }
+		 
+		 
+//		 Cookie killMyCookie = new Cookie("user", null);
+//		 killMyCookie.setMaxAge(0);
+//		 killMyCookie.setPath("/");
+//		 response.addCookie(killMyCookie);
 		 
 		return "success";
 	}

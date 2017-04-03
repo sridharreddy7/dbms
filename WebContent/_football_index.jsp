@@ -280,7 +280,7 @@
                 <li class=""><a href="#">My Account</a>
                 </li>
                	<li class=""><a href="#"><%request.getAttribute("user"); %> 
-               	<s:property value="email"/>username.
+               	<s:property value="email"/>
                	</a>
                 </li>
               </ul>
