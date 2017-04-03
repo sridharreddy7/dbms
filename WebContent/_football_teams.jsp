@@ -1,3 +1,10 @@
+<%@page import="org.json.*"%>
+<%@page import="java.util.*"%>
+<%@page import="javax.servlet.http.Cookie"%>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+    <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -127,6 +134,7 @@
             <!-- Header Logo / End -->
   
             <!-- Main Navigation -->
+
            <nav class="main-nav clearfix">
               <ul class="main-nav__list">
                 <li class="active"><a href="_football_index.html">Home</a>
@@ -142,6 +150,24 @@
                 <li class=""><a href="#">My Account</a>
                 </li>
                 <li class=""><a href="#">Managers</a>
+                </li>
+              	<%
+              	Cookie[] checkTheCookie = request.getCookies();
+            		  String email ="";
+            	if(checkTheCookie!=null){
+          				for(Cookie cki: checkTheCookie){
+          					String name = cki.getName();
+          					
+          					if(name.equals("user")){
+          						
+          	                	String[] splitArr = cki.getValue().split("@");
+          	                     email = splitArr[0];	
+          					}
+          				}
+          			}
+	            %> 
+	            
+                <li class=""><a href="#"><%=email %> </a>
                 </li>
               </ul>
 
@@ -203,15 +229,15 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse" id="navbar-brand-centered">
           <ul class="nav navbar-nav">
-            <li><a href="#" class="season_year" value="2016">2016</a></li>
-            <li><a href="#" class="season_year" value="2015">2015</a></li>
-            <li><a href="#" class="season_year" value="2014">2014</a></li>
-            <li><a href="#" class="season_year" value="2013">2013</a></li>
-            <li><a href="#" class="season_year" value="2012">2012</a></li>
-            <li><a href="#" class="season_year" value="2011">2011</a></li>
-            <li><a href="#" class="season_year" value="2010">2010</a></li>
-            <li><a href="#" class="season_year" value="2009">2009</a></li>
-            <li><a href="#" class="season_year" value="2008">2008</a></li>
+            <li><a href="/Struts2Sample/teams?year=2016#navbar-brand-centered" class="season_year" value="2016">2016</a></li>
+            <li><a href="/Struts2Sample/teams?year=2015#navbar-brand-centered" class="season_year" value="2015">2015</a></li>
+            <li><a href="/Struts2Sample/teams?year=2014#navbar-brand-centered" class="season_year" value="2014">2014</a></li>
+            <li><a href="/Struts2Sample/teams?year=2013#navbar-brand-centered" class="season_year" value="2013">2013</a></li>
+            <li><a href="/Struts2Sample/teams?year=2012#navbar-brand-centered" class="season_year" value="2012">2012</a></li>
+            <li><a href="/Struts2Sample/teams?year=2011#navbar-brand-centered" class="season_year" value="2011">2011</a></li>
+            <li><a href="/Struts2Sample/teams?year=2010#navbar-brand-centered" class="season_year" value="2010">2010</a></li>
+            <li><a href="/Struts2Sample/teams?year=2009#navbar-brand-centered" class="season_year" value="2009">2009</a></li>
+            <li><a href="/Struts2Sample/teams?year=2008#navbar-brand-centered" class="season_year" value="2008">2008</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">      
           </ul>
@@ -251,7 +277,52 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
+                
+                  <%
+                    JSONArray test = (JSONArray)request.getAttribute("json");
+	        		for(int i = 0; i < test.length(); i++)
+	        		{
+	        		      JSONObject jsonObject = test.getJSONObject(i);
+	        		      String pos = jsonObject.get("pos").toString();
+	        		      String total = jsonObject.get("total").toString();
+	        		      String lost = jsonObject.get("lost").toString();
+	        		      String name = jsonObject.get("teamName").toString();
+	        		      String won = jsonObject.get("won").toString();
+	        		      %>
+	        		       <%-- <h6 class="team-meta__name"><%=name %></h6> --%>
+	        		       <%-- <h6 class="team-meta__name"><%=won %></h6> --%>
+	        		       
+	        		        <tr>
+			                    <td class="team-standings__pos"><%=pos %></td>
+			                    <td class="team-standings__team">
+			                      <div class="team-meta">
+			                        <figure class="team-meta__logo">
+			                          <img src="assets/images/samples/logos/pirates_shield.png" alt="">
+			                        </figure>
+			                        <div class="team-meta__info">
+			                          <h6 class="team-meta__name"><%=name %></h6>
+			                          <span class="team-meta__place">Bebop Institute</span>
+			                        </div>
+			                      </div>
+			                    </td>
+			                    <td class="team-standings__win"><%=won %></td>
+			                    <td class="team-standings__lose"><%=lost %></td>
+			                    <td class="team-standings__ties"><%=total %></td>
+			                    <td class="team-standings__pct">.909</td>
+			                    <td class="team-standings__home">5-1</td>
+			                    <td class="team-standings__road">5-0</td>
+			                    <td class="team-standings__div">3-1</td>
+			                    <td class="team-standings__lgr">6-1</td>
+			                    <td class="team-standings__pf">316</td>
+			                    <td class="team-standings__pa">213</td>
+			                    <td class="team-standings__diff text-success">+103</td>
+			                    <td class="team-standings__strk">W10</td>
+			                  </tr>
+	        		       
+	        		      <% 
+	        		}
+                   %>
+<%--                   <tr>
                     <td class="team-standings__pos">01</td>
                     <td class="team-standings__team">
                       <div class="team-meta">
@@ -395,7 +466,7 @@
                         </figure>
                         <div class="team-meta__info">
                           <h6 class="team-meta__name">Lucky Clovers</h6>
-                          <span class="team-meta__place">St. Patrick’s Institute</span>
+                          <span class="team-meta__place">St. Patrickâs Institute</span>
                         </div>
                       </div>
                     </td>
@@ -519,7 +590,7 @@
                     <td class="team-standings__pa">352</td>
                     <td class="team-standings__diff text-danger">-155</td>
                     <td class="team-standings__strk">L12</td>
-                  </tr>
+                  </tr> --%>
 
                 </tbody>
               </table>
@@ -543,7 +614,7 @@
               <div class="glossary__item"><span class="glossary__abbr">Home:</span> Home Record</div>
               <div class="glossary__item"><span class="glossary__abbr">LGR:</span> League Record</div>
               <div class="glossary__item"><span class="glossary__abbr">DIFF:</span> Point Differential</div>
-              <div class="glossary__item"><span class="glossary__abbr">T:</span> Ties</div>
+              <div class="glossary__item"><span class="glossary__abbr">T:</span> Total</div>
               <div class="glossary__item"><span class="glossary__abbr">ROAD:</span> Road Record</div>
               <div class="glossary__item"><span class="glossary__abbr">PF:</span> Total Points For</div>
               <div class="glossary__item"><span class="glossary__abbr">STRK:</span> Current Streak</div>

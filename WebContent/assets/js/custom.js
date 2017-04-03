@@ -2,7 +2,7 @@
 function logout(){
 //	alert("called logout");
 	$.ajax({
-	    type : "GET",
+	    type : "POST",
 	    url  : "http://localhost:8080/Struts2Sample/logout",
 	    dataType : 'text/javascript',
 //	    data : {'name' : $("#selectedCountry").text()},
@@ -11,6 +11,8 @@ function logout(){
 //	        $("statesdivid").html(result);
 //	      }
 	    },
-	    error : function(xhr, errmsg) {alert("No values found..!!");}
+	    error : function(xhr, errmsg) {
+	    	alert("No values found..!!");
+	    }
 	});    
 }

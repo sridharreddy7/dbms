@@ -63,7 +63,7 @@
     <!-- Header Mobile -->
     <div class="header-mobile clearfix" id="header-mobile">
       <div class="header-mobile__logo">
-        <a href="_football_index.html"><img src="assets/images/cricket/logos/rsz_indian_premier_leaguesvg.png" alt="Alchemists" class="header-mobile__logo-img"></a>
+        <a href="_football_index.jsp"><img src="assets/images/cricket/logos/rsz_indian_premier_leaguesvg.png" alt="Alchemists" class="header-mobile__logo-img"></a>
       </div>
       <div class="header-mobile__inner">
         <a id="header-mobile__toggle" class="burger-menu-icon"><span class="burger-menu-icon__line"></span></a>
@@ -282,8 +282,10 @@
                	<li class=""><a href="#">
 	               	<%
 	               	String email = (String)request.getAttribute("email"); 
+                	String[] splitArr = email.split("@");
+                    String email1 = splitArr[0];	
 	               	%> 
-	               	<%=email %>
+	               	<%=email1 %>
                	</a>
                 </li>
               </ul>

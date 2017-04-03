@@ -72,7 +72,12 @@ public class MainFilter implements Filter {
 		System.out.println("is user here ->"+isUser);
 //		System.out.println("is user here ->"+uri);
 		
-		if(!isUser  && !(uri.endsWith("teams")) && !(uri.endsWith("_football_login.jsp")) && !uri.endsWith("css")&& !uri.endsWith("js") && !uri.endsWith("jpg") && !uri.endsWith("png") && !uri.endsWith("svg")&& !uri.endsWith("woff")&& !uri.endsWith("woff2")&& !uri.endsWith("ttf")&& !uri.endsWith("php")){
+		if(isUser && uri.endsWith("/")){
+			res.sendRedirect("_football_index.jsp");
+			return;
+		}
+		
+		if(!isUser && !(uri.endsWith("_football_login.jsp")) && !uri.endsWith("css")&& !uri.endsWith("js") && !uri.endsWith("jpg") && !uri.endsWith("png") && !uri.endsWith("svg")&& !uri.endsWith("woff")&& !uri.endsWith("woff2")&& !uri.endsWith("ttf")&& !uri.endsWith("php")){
 
 			System.out.println("uri here ->"+uri);
 			res.sendRedirect("_football_login.jsp");
