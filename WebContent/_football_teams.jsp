@@ -137,7 +137,7 @@
 
            <nav class="main-nav clearfix">
               <ul class="main-nav__list">
-                <li class="active"><a href="/Struts2Sample/">Home</a>
+<%--                 <li class="active"><a href="/Struts2Sample/">Home</a>
                 </li>
                 <li class=""><a href="#">Matches</a>
                 </li>
@@ -146,10 +146,6 @@
                 <li class=""><a href="/Struts2Sample/teams">Teams</a>
                 </li>
                 <li class=""><a href="/Struts2Sample/stats">Stats</a>
-                </li>
-                <li class=""><a href="#">My Account</a>
-                </li>
-                <li class=""><a href="#">Managers</a>
                 </li>
               	<%
               	Cookie[] checkTheCookie = request.getCookies();
@@ -168,7 +164,20 @@
 	            %> 
 	            
                 <li class=""><a href="#"><%=email %> </a>
+                </li> --%>
+                <li class="active"><a href="/Struts2Sample/">Home</a>
                 </li>
+                <li class=""><a href="/Struts2Sample/venues">Venues</a>
+                </li>
+                <li class=""><a href="/Struts2Sample/teams">Teams</a>
+                </li>
+                <li class=""><a href="/Struts2Sample/stats">Statistics</a>
+                </li>
+                <li class=""><a href="/Struts2Sample/matches">Matches</a>
+                </li>
+                <li class=""><a href="/Struts2Sample/compare">Compare</a>
+                </li>
+                
               </ul>
 
               <ul class="main-nav__list" style="float:right;">
@@ -253,7 +262,7 @@
         <!-- Team Standings -->
         <div class="card card--has-table">
           <div class="card__header">
-            <h4>West League 2016</h4>
+            <h4>IPL</h4>
           </div>
           <div class="card__content">
             <div class="table-responsive">
@@ -265,7 +274,7 @@
                     <th class="team-standings__win">W</th>
                     <th class="team-standings__lose">L</th>
                     <th class="team-standings__ties">T</th>
-                    <th class="team-standings__pct">PCT</th>
+<!--                     <th class="team-standings__pct">PCT</th>
                     <th class="team-standings__home">Home</th>
                     <th class="team-standings__road">Road</th>
                     <th class="team-standings__div">Div</th>
@@ -273,7 +282,7 @@
                     <th class="team-standings__pf">PF</th>
                     <th class="team-standings__pa">PA</th>
                     <th class="team-standings__diff">DIFF</th>
-                    <th class="team-standings__strk">STRK</th>
+                    <th class="team-standings__strk">STRK</th> -->
                   </tr>
                 </thead>
                 <tbody>
@@ -300,9 +309,9 @@
 			                    <td class="team-standings__pos"><%=pos %></td>
 			                    <td class="team-standings__team">
 			                      <div class="team-meta">
-			                        <figure class="team-meta__logo">
+<!-- 			                        <figure class="team-meta__logo">
 			                          <img src="assets/images/samples/logos/pirates_shield.png" alt="">
-			                        </figure>
+			                        </figure> -->
 			                        <div class="team-meta__info">
 			                          <a href="/Struts2Sample/players?team=<%=name %>&year=<%=year %>" ><h6 class="team-meta__name"><%=name %></h6></a>
 			                          <%-- <span class="team-meta__place">Bebop Institute</span> --%>
@@ -312,7 +321,7 @@
 			                    <td class="team-standings__win"><%=won %></td>
 			                    <td class="team-standings__lose"><%=lost %></td>
 			                    <td class="team-standings__ties"><%=total %></td>
-			                    <td class="team-standings__pct">.909</td>
+<!-- 			                    <td class="team-standings__pct">.909</td>
 			                    <td class="team-standings__home">5-1</td>
 			                    <td class="team-standings__road">5-0</td>
 			                    <td class="team-standings__div">3-1</td>
@@ -320,7 +329,7 @@
 			                    <td class="team-standings__pf">316</td>
 			                    <td class="team-standings__pa">213</td>
 			                    <td class="team-standings__diff text-success">+103</td>
-			                    <td class="team-standings__strk">W10</td>
+			                    <td class="team-standings__strk">W10</td> -->
 			                  </tr>
 	        		       
 	        		      <% 
@@ -611,17 +620,8 @@
           <div class="card__content">
             <div class="glossary">
               <div class="glossary__item"><span class="glossary__abbr">W:</span> Wins</div>
-              <div class="glossary__item"><span class="glossary__abbr">PCT:</span> Winning Percentage</div>
-              <div class="glossary__item"><span class="glossary__abbr">DIV:</span> Division Record</div>
-              <div class="glossary__item"><span class="glossary__abbr">PA:</span> Total Points Against</div>
               <div class="glossary__item"><span class="glossary__abbr">L:</span> Loses</div>
-              <div class="glossary__item"><span class="glossary__abbr">Home:</span> Home Record</div>
-              <div class="glossary__item"><span class="glossary__abbr">LGR:</span> League Record</div>
-              <div class="glossary__item"><span class="glossary__abbr">DIFF:</span> Point Differential</div>
               <div class="glossary__item"><span class="glossary__abbr">T:</span> Total</div>
-              <div class="glossary__item"><span class="glossary__abbr">ROAD:</span> Road Record</div>
-              <div class="glossary__item"><span class="glossary__abbr">PF:</span> Total Points For</div>
-              <div class="glossary__item"><span class="glossary__abbr">STRK:</span> Current Streak</div>
             </div>
           </div>
         </div>
@@ -698,14 +698,14 @@
                 <div class="footer-copyright"><a href="/Struts2Sample/">IPL</a> 2017 &nbsp; | &nbsp; All Rights Reserved</div>
               </div>
               <div class="col-md-8">
-                <ul class="footer-nav footer-nav--right footer-nav--sm">
+<!--                 <ul class="footer-nav footer-nav--right footer-nav--sm">
                   <li class="footer-nav__item"><a href="#">Home</a></li>
                   <li class="footer-nav__item"><a href="#">Features</a></li>
                   <li class="footer-nav__item"><a href="#">Statistics</a></li>
                   <li class="footer-nav__item"><a href="#">The Team</a></li>
                   <li class="footer-nav__item"><a href="#">News</a></li>
                   <li class="footer-nav__item"><a href="#">Shop</a></li>
-                </ul>
+                </ul> -->
               </div>
             </div>
           </div>

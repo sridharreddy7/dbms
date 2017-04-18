@@ -186,211 +186,7 @@
     <div class="site-content">
       <div class="container">
 
-        <!-- Contact Area -->
-        <div class="card">
-          <header class="card__header">
-            <h4>Statistics</h4>
-          </header>
-          <div class="card__content">
-
-            <div class="row">
-              <div class="col-md-12">
-
-                <!-- Contact Form -->
-                <form action="stats" class="contact-form">
-                  <div class="row">
-                    <div class="col-md-12">
-                      <h6>Stats related to</h6>
-                      <div class="form-group">
-<%--                         <label class="radio radio-inline">
-                          <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked=""> Batting
-                          <span class="radio-indicator"></span>
-                        </label>
-                        <label class="radio radio-inline">
-                          <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Bowling
-                          <span class="radio-indicator"></span>
-                        </label> --%>
-	<%--                         <label class="radio radio-inline">
-	                          <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Feilding
-	                          <span class="radio-indicator"></span>
-	                        </label>
-	                        <label class="radio radio-inline disabled">
-	                          <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" disabled=""> Disabled
-	                          <span class="radio-indicator"></span>
-	                        </label> --%>
-	                  <select class="form-control selectpicker" name="batbowl" id="select-country" data-live-search="true">
-			                  <option  value="1">batting</option>
-			                  <option value="2">bowling</option>
-
-			          </select>
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                      <div class="form-group">
-                        <label class="control-label" for="select-default">Select Team</label>
-<%--                         <select name="select-default" id="select-default" class="form-control">
-                          <option value="Canada">Canada</option>
-                          <option value="Italy">Italy</option>
-                          <option value="Spain">Spain</option>
-                          <option value="Greece">Greece</option>
-                        </select> --%>
-                      <select class="form-control selectpicker" name="team1" id="select-country" data-live-search="true">
-			                  <option  value="1">Kolkata Knight Riders</option>
-			                  <option value="2">Royal Challengers Bangalore</option>
-			                  <option  value="3">Chennai Super Kings</option>
-			                  <option  value="4">Kings XI Punjab</option>
-			                  <option  value="5">Rajasthan Royals</option>
-			                  <option  value="6">Delhi Daredevils</option>
-			                  <option  value="7">Mumbai Indians</option>
-			                  <option  value="8">Deccan Chargers</option>
-			                  <option  value="9">Kochi Tuskers Kerala</option>
-			                  <option  value="10">Pune Warriors</option>
-			                  <option  value="11">Sunrisers Hyderabad</option>
-			                  <option  value="12">Rising Pune Supergiants</option>
-			                  <option  value="13">Gujarat Lions</option>
-			          </select>
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                      <div class="form-group">
-                        <label class="control-label" for="select-default">Select Opponent</label>
-<%--                         <select name="select-default" id="select-default" class="form-control">
-                          <option value="Canada">Canada</option>
-                          <option value="Italy">Italy</option>
-                          <option value="Spain">Spain</option>
-                          <option value="Greece">Greece</option>
-                        </select> --%>
-                       <select class="form-control selectpicker" name="team2" id="select-country" data-live-search="true">
-			                  <option  value="1">Kolkata Knight Riders</option>
-			                  <option value="2">Royal Challengers Bangalore</option>
-			                  <option  value="3">Chennai Super Kings</option>
-			                  <option  value="4">Kings XI Punjab</option>
-			                  <option  value="5">Rajasthan Royals</option>
-			                  <option  value="6">Delhi Daredevils</option>
-			                  <option  value="7">Mumbai Indians</option>
-			                  <option  value="8">Deccan Chargers</option>
-			                  <option  value="9">Kochi Tuskers Kerala</option>
-			                  <option  value="10">Pune Warriors</option>
-			                  <option  value="11">Sunrisers Hyderabad</option>
-			                  <option  value="12">Rising Pune Supergiants</option>
-			                  <option  value="13">Gujarat Lions</option>
-			          </select>
-                      </div>
-                    </div>
-<%--                     <div class="col-md-4">
-                      <div class="form-group">
-                        <label class="control-label" for="select-default">Host Country</label>
-                        <select name="select-default" id="select-default" class="form-control">
-                          <option value="Canada">Canada</option>
-                          <option value="Italy">Italy</option>
-                          <option value="Spain">Spain</option>
-                          <option value="Greece">Greece</option>
-                        </select>
-                      </div>
-                    </div> --%>
-                    <div class="col-md-4">
-                      <div class="form-group">
-                        <label class="control-label" for="select-default">Venue</label>
-			          <select class="form-control selectpicker" name="venue" id="select-country" data-live-search="true">
-<!-- 			                  <option  value="1">Kolkata Knight Riders</option>
-			                  <option value="2">Royal Challengers Bangalore</option>
-			                  <option  value="3">Chennai Super Kings</option>
-			                  <option  value="4">Kings XI Punjab</option>
-			                  <option  value="5">Rajasthan Royals</option>
-			                  <option  value="6">Delhi Daredevils</option>
-			                  <option  value="7">Mumbai Indians</option>
-			                  <option  value="8">Deccan Chargers</option>
-			                  <option  value="9">Kochi Tuskers Kerala</option>
-			                  <option  value="10">Pune Warriors</option>
-			                  <option  value="11">Sunrisers Hyderabad</option>
-			                  <option  value="12">Rising Pune Supergiants</option>
-			                  <option  value="13">Gujarat Lions</option> -->
-			                  <%
-			                  JSONArray test = (JSONArray)request.getAttribute("resJson");
-				        		for(int i = 0; i < test.length(); i++)
-				        		{
-				        		      JSONObject jsonObject = test.getJSONObject(i);
-				        		      String venue_id = jsonObject.get("venue_id").toString();
-				        		      String venue_name = jsonObject.get("venue_name").toString();
-			                  %>
-			                  <option value= "<%=venue_id%>"><%=venue_name %></option>
-			                  <%} %>
-			          </select>
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                      <div class="form-group">
-                        <label class="control-label" for="select-default">Select Season</label>
-<%--                         <select name="select-default" id="select-default" class="form-control">
-                          <option value="Canada">Canada</option>
-                          <option value="Italy">Italy</option>
-                          <option value="Spain">Spain</option>
-                          <option value="Greece">Greece</option>
-                        </select> --%>
-			          <select class="form-control selectpicker" name="season" id="select-country" data-live-search="true">
-			                  <option  value="1">2008</option>
-			                  <option value="2">2009</option>
-			                  <option  value="3">2010</option>
-			                  <option  value="4">2011</option>
-			                  <option  value="5">2012</option>
-			                  <option  value="6">2013</option>
-			                  <option  value="7">2014</option>
-			                  <option  value="8">2015</option>
-			                  <option  value="9">2016</option>
-			          </select>                        
-                      </div>
-                    </div>
-                    <div class="col-md-4">
-                      <div class="form-group">
-                      <h6>Match Result</h6>
-<%--                         <label class="checkbox checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox1" value="option1" checked=""> Checked
-                          <span class="checkbox-indicator"></span>
-                        </label>
-                        <label class="checkbox checkbox-inline">
-                          <input type="checkbox" id="inlineCheckbox2" value="option2"> Unchecked
-                          <span class="checkbox-indicator"></span>
-                        </label>
-                        <label class="checkbox checkbox-inline disabled">
-                          <input type="checkbox" id="inlineCheckbox3" value="option3" disabled=""> Disabled
-                          <span class="checkbox-indicator"></span>
-                        </label> --%>
-                     <select class="form-control selectpicker" name="winlose" id="select-country" data-live-search="true">
-			                  <option  value="1">win</option>
-			                  <option value="2">lose</option>
-			          </select>  
-                      </div>
-                    </div>
-<%--                     <div class="col-md-12">
-                      <h6>View Format</h6>
-                      <div class="form-group">
-                        <label class="radio radio-inline">
-                          <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1" checked=""> Selected
-                          <span class="radio-indicator"></span>
-                        </label>
-                        <label class="radio radio-inline">
-                          <input type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2"> Unselected
-                          <span class="radio-indicator"></span>
-                        </label>
-                        <label class="radio radio-inline disabled">
-                          <input type="radio" name="inlineRadioOptions" id="inlineRadio3" value="option3" disabled=""> Disabled
-                          <span class="radio-indicator"></span>
-                        </label>
-                      </div>
-                    </div> --%>
-                  <div class="form-group form-group--submit">
-                    <button type="submit" class="btn btn-primary-inverse btn-lg btn-block">Get Stats</button>
-                  </div>
-                </form>
-                <!-- Contact Form / End -->
-              </div>
-            </div>
-
-          </div>
-        </div>
-        <!-- Contact Area / End -->
-
-<!--         <div class="card card--has-table " style="margin-top: 20px;">
+        <div class="card card--has-table " style="margin-top: 20px;">
           <div class="card__header">
             <h4>All Stats</h4>
           </div>
@@ -399,11 +195,11 @@
               <table class="table table-hover player-season-avg">
                 <thead>
                   <tr>
-                    <th class="player-season-avg__season">Season/League</th>
-                    <th class="player-season-avg__stat">GP</th>
-                    <th class="player-season-avg__stat">CMP</th>
-                    <th class="player-season-avg__stat">ATT</th>
-                    <th class="player-season-avg__stat">CMP%</th>
+                    <th class="player-season-avg__season">Player Name</th>
+                    <th class="player-season-avg__stat">Total Runs</th>
+                    <th class="player-season-avg__stat">Fours</th>
+                    <th class="player-season-avg__stat">Sixes</th>
+<!--                     <th class="player-season-avg__stat">CMP%</th>
                     <th class="player-season-avg__stat">YDS</th>
                     <th class="player-season-avg__stat">AVG</th>
                     <th class="player-season-avg__stat">TD</th>
@@ -411,16 +207,28 @@
                     <th class="player-season-avg__stat">INT</th>
                     <th class="player-season-avg__stat">FUM</th>
                     <th class="player-season-avg__stat">QBR</th>
-                    <th class="player-season-avg__stat">RAT</th>
+                    <th class="player-season-avg__stat">RAT</th> -->
                   </tr>
                 </thead>
                 <tbody>
+				<%
+                    JSONArray test = (JSONArray)request.getAttribute("resStatJson");
+	        		for(int i = 0; i < test.length(); i++)
+	        		{
+	        		      JSONObject jsonObject = test.getJSONObject(i);
+	        		      String player_name = jsonObject.get("player_name").toString();
+	        		      String total_runs = jsonObject.get("total_runs").toString();
+	        		      String fours = jsonObject.get("fours").toString();
+	        		      String sixes = jsonObject.get("sixes").toString();
+	        		      /* String won = jsonObject.get("won").toString(); */
+
+	        	%>   
                   <tr>
-                    <td class="player-season-avg__season">West League 2016</td>
-                    <td class="player-season-avg__stat">7</td>
-                    <td class="player-season-avg__stat">175</td>
-                    <td class="player-season-avg__stat">256</td>
-                    <td class="player-season-avg__stat">68.4</td>
+                    <td class="player-season-avg__season"><%=player_name %></td>
+                    <td class="player-season-avg__stat"><%=total_runs %></td>
+                    <td class="player-season-avg__stat"><%=fours %></td>
+                    <td class="player-season-avg__stat"><%=sixes %></td>
+<!--                     <td class="player-season-avg__stat">68.4</td>
                     <td class="player-season-avg__stat">2201</td>
                     <td class="player-season-avg__stat">8.6</td>
                     <td class="player-season-avg__stat">18</td>
@@ -428,13 +236,14 @@
                     <td class="player-season-avg__stat">1</td>
                     <td class="player-season-avg__stat">1</td>
                     <td class="player-season-avg__stat">85.6</td>
-                    <td class="player-season-avg__stat">116.7</td>
+                    <td class="player-season-avg__stat">116.7</td> -->
                   </tr>
+                  <%} %>
                 </tbody>
               </table>
             </div>
           </div>
-        </div> -->
+        </div>
       </div>
     </div>
 

@@ -28,6 +28,8 @@
       <action name="stats" class="dbms.Stats" method="stats">
             <result name="success">/_football_stats.jsp</result>
             <result name="failure">/_football_404.html</result>
+            <result name="successStats">/_football_stats_results.jsp</result>
+            
       </action>
       
       <action name="teams" class="dbms.Teams" method="teams">
@@ -48,9 +50,26 @@
       <action name="allteams" class="dbms.Teams" method="allteams">
             <result name="success">/_football_teams_list.jsp</result>
             <result name="failure">/_football_404.html</result>
-      </action>      
+      </action>    
+      
+      <action name="compare" class="dbms.Compare" method="compare">
+            <result name="success">/_football_compare.jsp</result>
+            <result name="failure">/_football_404.html</result>
+      </action>  
+
+      <action name="matches" class="dbms.Matches" method="matches">
+            <result name="success">/_football_matches.jsp</result>
+            <result name="failure">/_football_404.html</result>
+      </action>  
       
    </package>
-
+   
+    <package name="graphh" extends="json-default">
+        <action name="graph" class="dbms.Graph" method="graph">
+            <result type="json">
+            	<param name="root">resJsonArray</param>
+            </result>
+        </action>        
+    </package>
    
 </struts>

@@ -132,19 +132,17 @@
             <!-- Main Navigation -->
             <nav class="main-nav clearfix">
               <ul class="main-nav__list">
-                <li class="active"><a href="_football_index.html">Home</a>
+                <li class="active"><a href="/Struts2Sample/">Home</a>
                 </li>
-                <li class=""><a href="#">Matches</a>
-                </li>
-                <li class=""><a href="#">Venues</a>
+                <li class=""><a href="/Struts2Sample/venues">Venues</a>
                 </li>
                 <li class=""><a href="/Struts2Sample/teams">Teams</a>
                 </li>
-                <li class=""><a href="/Struts2Sample/stats">Stats</a>
+                <li class=""><a href="/Struts2Sample/stats">Statistics</a>
                 </li>
-                <li class=""><a href="#">My Account</a>
+                <li class=""><a href="/Struts2Sample/matches">Matches</a>
                 </li>
-                <li class=""><a href="#">Managers</a>
+                <li class=""><a href="/Struts2Sample/compare">Compare</a>
                 </li>
               </ul>
 
@@ -193,9 +191,9 @@
             <div class="card__content">
 
               <!-- Player Photo -->
-              <figure class="team-roster__player-img">
+<!--               <figure class="team-roster__player-img">
                 <a href="_football_player-overview.html"><img src="#" alt=""></a>
-              </figure>
+              </figure> -->
               <!-- Player Photo / End-->
 
               <!-- Player Details -->
